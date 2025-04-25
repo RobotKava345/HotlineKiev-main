@@ -48,8 +48,7 @@ bottom_wall_img = image.load("using images/bottom_wall.png")
 
 
  
-#enemy_img = image.load("cyborg.png")
-treasure_img = image.load("treasure.png")
+
 
 all_labels = sprite.Group()
 all_sprites = sprite.Group()
@@ -77,6 +76,7 @@ class Label(sprite.Sprite):
         all_labels.add(self)
 
     def set_text(self, new_text, color = (255, 255, 255)):
+
         self.image = self.font.render(new_text, True, color)
 
 def move_map(shift_x= 0, shift_y=0):
@@ -133,7 +133,7 @@ class Player(BaseSprite):
                 self.rect.y += self.speed
         move_map(shift_x, shift_y)
 
-        coll_list = sprite.spritecollide(player1, walls, False, sprite.collide_mask)
+    
  
 
 
@@ -160,7 +160,7 @@ class Enemy(BaseSprite):
         super().__init__(image, x, y, width, height)
         self.right_image = self.image
         self.left_image = transform.flip(self.image,True, False)
-        self.speed = 2
+        self.speed = 5
         self.dir_list = dir_list
         self.dir = random.choice(self.dir_list)
     def update(self):
